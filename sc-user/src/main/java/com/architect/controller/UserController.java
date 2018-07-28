@@ -23,6 +23,7 @@ public class UserController {
 
     @GetMapping("/getById/{id}")
     public User getUserById(@PathVariable Long id) {
+        log.info("请求参数：{}", id);
         return userService.findByPrimaryKey(id);
     }
 }
