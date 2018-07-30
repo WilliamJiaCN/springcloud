@@ -1,4 +1,4 @@
-package com.architect.bean;
+package com.architect.api.dto;
 
 import lombok.Data;
 import lombok.ToString;

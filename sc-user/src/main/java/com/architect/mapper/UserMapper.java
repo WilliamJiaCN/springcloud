@@ -1,10 +1,12 @@
 package com.architect.mapper;
 
-import com.architect.bean.User;
+import com.architect.api.dto.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author wenxiong.jia
@@ -28,4 +30,11 @@ public interface UserMapper {
      */
     @Insert("INSERT INTO T_USER(NAME, AGE, ADDRESS, PHONE) VALUES(#{name}, #{age}, #{address}, #{phone})")
     int insert(User user);
+
+    /**
+     * 查询用户信息列表
+     * @return 用户信息列表
+     */
+    @Select("SELECT * FROM T_USER")
+    List<User> queryList();
 }

@@ -1,11 +1,13 @@
 package com.architect.service.impl;
 
-import com.architect.bean.User;
+import com.architect.api.dto.User;
 import com.architect.mapper.UserMapper;
 import com.architect.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author wenxiong.jia
@@ -21,5 +23,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByPrimaryKey(Long id) {
         return userMapper.queryByPrimaryKey(id);
+    }
+
+    @Override
+    public List<User> getList() {
+        return userMapper.queryList();
     }
 }

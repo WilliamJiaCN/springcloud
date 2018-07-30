@@ -17,6 +17,8 @@
 	<modules>
 		<module>sc-user</module>
 		<module>sc-order</module>
+        <module>sc-api</module>
+		<module>sc-common-api</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
