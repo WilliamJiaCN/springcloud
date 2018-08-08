@@ -27,18 +27,18 @@ public class UserServiceImpl implements UserService {
         if (id == 10) {
             throw new NullPointerException();
         }
-        long startTime = System.currentTimeMillis();
-        // 测试超时服务降级
-        int sleepTime = new Random().nextInt(3000);
-        log.info("sleep time:{}", sleepTime);
-        try {
-            // 测试限流
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        long startTime = System.currentTimeMillis();
+//        // 测试超时服务降级
+//        int sleepTime = new Random().nextInt(3000);
+//        log.info("sleep time:{}", sleepTime);
+//        try {
+//            // 测试限流
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         User user = userMapper.queryByPrimaryKey(id);
-        log.info("方法执行耗时：{}", System.currentTimeMillis() - startTime);
+//        log.info("方法执行耗时：{}", System.currentTimeMillis() - startTime);
         return user;
     }
 

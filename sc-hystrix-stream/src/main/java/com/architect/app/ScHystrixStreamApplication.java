@@ -14,9 +14,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 @EnableCircuitBreaker
-public class ScOrderApplication {
+public class ScHystrixStreamApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ScOrderApplication.class, args);
+		SpringApplication.run(ScHystrixStreamApplication.class, args);
 	}
 }

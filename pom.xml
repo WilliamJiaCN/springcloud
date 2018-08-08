@@ -20,6 +20,7 @@
         <module>sc-api</module>
 		<module>sc-common-api</module>
 		<module>sc-hystrix</module>
+		<module>sc-hystrix-stream</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

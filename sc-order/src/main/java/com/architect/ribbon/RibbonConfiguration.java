@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @author wenxiong.jia
  * @since 2018/7/30
  */
-@Configuration
+//@Configuration
 public class RibbonConfiguration {
     @Bean
     public IRule loadBalanceRule() {
