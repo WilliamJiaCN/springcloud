@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author wenxiong.jia
@@ -22,7 +23,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByPrimaryKey(Long id) {
-        return userMapper.queryByPrimaryKey(id);
+        // 测试异常服务熔断
+        if (id == 10) {
+            throw new NullPointerException();
+        }
+        long startTime = System.currentTimeMillis();
+        // 测试超时服务降级
+        int sleepTime = new Random().nextInt(3000);
+        log.info("sleep time:{}", sleepTime);
+        try {
+            // 测试限流
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        User user = userMapper.queryByPrimaryKey(id);
+        log.info("方法执行耗时：{}", System.currentTimeMillis() - startTime);
+        return user;
     }
 
     @Override

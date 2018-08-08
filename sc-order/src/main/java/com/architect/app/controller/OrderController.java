@@ -2,6 +2,7 @@ package com.architect.app.controller;
 
 import com.architect.api.dto.User;
 import com.architect.app.feign.UserService;
+import com.architect.app.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,6 +26,8 @@ public class OrderController {
     private RestTemplate restTemplate;
     @Autowired
     private UserService userService;
+    @Autowired
+    private OrderService orderService;
 
     @Value("${user.getUserById.url}")
     private String userGetUserByIdUrl;
@@ -44,4 +47,15 @@ public class OrderController {
     public List<User> getUserList() {
         return userService.getUserList();
     }
+
+//    @GetMapping("/getUserByIdWithHystrix/{id}")
+//    public Object getUserByIdWithHystrix(@PathVariable Long id) {
+//        OrderServiceCommand command = new OrderServiceCommand("orderGroup", userService, id);
+//        return command.execute();
+//    }
+//
+//    @GetMapping("/getUserByIdWithHystrixAnnotation/{id}")
+//    public Object getUserByIdWithHystrixAnnotation(@PathVariable Long id) {
+//        return orderService.getUserById(id);
+//    }
 }

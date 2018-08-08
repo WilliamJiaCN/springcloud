@@ -19,6 +19,7 @@
 		<module>sc-order</module>
         <module>sc-api</module>
 		<module>sc-common-api</module>
+		<module>sc-hystrix</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
