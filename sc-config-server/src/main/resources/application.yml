@@ -1,0 +1,12 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: sc-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/WilliamJiaCN/config.git
+          username:
+          password:

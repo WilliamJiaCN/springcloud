@@ -7,8 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 
 /**
  * @author wenxiong.jia
@@ -17,9 +18,21 @@ import java.util.Random;
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
+    private static Map<Long, User> userInfos = new HashMap<>();
 
-    @Autowired
-    private UserMapper userMapper;
+    static {
+        User user = new User();
+        user.setId(1L);
+        user.setAge(28);
+        user.setName("William");
+        user.setPhone("15353714844");
+        user.setAddress("北京市昌平区");
+        userInfos.put(1L, user);
+        userInfos.put(2L, user);
+        userInfos.put(3L, user);
+    }
+//    @Autowired
+//    private UserMapper userMapper;
 
     @Override
     public User findByPrimaryKey(Long id) {
@@ -37,13 +50,19 @@ public class UserServiceImpl implements UserService {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-        User user = userMapper.queryByPrimaryKey(id);
+//        User user = userMapper.queryByPrimaryKey(id);
 //        log.info("方法执行耗时：{}", System.currentTimeMillis() - startTime);
-        return user;
+        return new User();
     }
 
     @Override
     public List<User> getList() {
-        return userMapper.queryList();
+//        return userMapper.queryList();
+        return null;
+    }
+
+    @Override
+    public User getById(Long id) {
+        return userInfos.get(id);
     }
 }

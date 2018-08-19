@@ -24,4 +24,6 @@ public interface UserService {
      * @return 用户信息列表
      */
     List<User> getList();
+
+    User getById(Long id);
 }

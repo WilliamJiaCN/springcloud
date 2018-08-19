@@ -12,7 +12,7 @@ import java.util.List;
  * @author wenxiong.jia
  * @since 2018/7/20
  */
-@Mapper
+//@Mapper
 public interface UserMapper {
 
     /**
